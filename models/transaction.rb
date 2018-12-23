@@ -10,3 +10,13 @@ class Transaction
   end
 
 end
+
+#### SQL CRUD Actions ####
+
+  # def save()
+  # def update()
+  # def delete()
+  # def self.find(id)
+  # def self.delete_by_id(id)
+  # def self.all()
+  # def self.delete_all()
