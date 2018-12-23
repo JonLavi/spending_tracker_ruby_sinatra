@@ -18,6 +18,6 @@ CREATE TABLE tags
 CREATE TABLE transactions
 (
   id SERIAL8 PRIMARY KEY,
-  merchant_id INT8 REFERENCES merchants(id),
-  tag_id INT8 REFERENCES tags(id)
+  merchant_id INT8 REFERENCES merchants(id) ON DELETE SET NULL,
+  tag_id INT8 REFERENCES tags(id) ON DELETE SET NULL
 );
