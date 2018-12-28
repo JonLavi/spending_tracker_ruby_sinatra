@@ -4,12 +4,11 @@ require_relative( '../models/merchant.rb' )
 also_reload( '../models/*' )
 
 get '/merchants' do
-  'Hello World'
   @merchants = Merchant.all()
-  erb ( :"merchant/index" )
+  erb ( :"merchants/index" )
 end
 
-get '/victims/:id' do
-  @victim = Victim.find(params['id'].to_i)
-  erb( :"victims/show" )
+get '/merchants/:id' do
+  @merchant = Merchant.find(params['id'].to_i)
+  erb(:"merchants/show")
 end
