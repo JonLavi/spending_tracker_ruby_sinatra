@@ -10,12 +10,28 @@ class Transaction
     @amount = options['amount'].to_i
   end
 
-#def merchant()
-#def tag()
+  def merchant()
+    sql = 'SELECT name FROM merchants where id = $1'
+    values = [@merchant_id]
+    results = SqlRunner.run(sql, values)[0]['name']
+    return results
+  end
 
-#def self.all_with_merchant(merchant)
-#def self.all_with_tag(merchant)
-#def self.total
+  def tag()
+    sql = 'SELECT name FROM tags where id = $1'
+    values = [@tag_id]
+    results = SqlRunner.run(sql, values)[0]['name']
+    return results
+  end
+
+  #def self.all_with_merchant(merchant)
+  #def self.all_with_tag(merchant)
+
+  def self.total
+    sql = 'SELECT SUM(amount) from transactions'
+    results = SqlRunner.run(sql)[0]['sum'].to_i
+    return results
+  end
 
 #### SQL CRUD Actions ####
 

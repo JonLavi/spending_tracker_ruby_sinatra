@@ -30,6 +30,9 @@ transaction2.save()
 #  Merchant.delete_by_id(id)
 #  Merchant.all()
 #  Merchant.delete_all()
+#  Transaction.total
+#  transaction1.merchant()
+#  transaction1.tag()
 
 
 #TODO : test crud for tags/transactions
