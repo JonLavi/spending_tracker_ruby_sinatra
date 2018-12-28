@@ -17,9 +17,9 @@ merchant1.save()
 merchant2 = Merchant.new({'name' => 'Amazon'})
 merchant2.save()
 
-transaction1 = Transaction.new({'merchant_id' => merchant1.id, 'tag_id' => tag1.id})
+transaction1 = Transaction.new({'merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => '50'})
 transaction1.save()
-transaction2 = Transaction.new({'merchant_id' => merchant2.id, 'tag_id' => tag2.id})
+transaction2 = Transaction.new({'merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => '25'})
 transaction2.save()
 
 #TESTED METHODS
