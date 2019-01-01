@@ -1,0 +1,21 @@
+<h1>Edit Transaction Details: <%= @transaction.id %></h1>
+
+<section class="details-box">
+<p>
+<form class="" action="/transactions/<%= @transaction.id %>" method="post">
+
+  <label for="merchant_id">Merchant ID:</label>
+  <input id="merchant_id" type="text" name="merchant_id" value="<%=@transaction.merchant_id%>" required="required" >
+
+  <label for="tag_id">Tag ID:</label>
+  <input id="tag_id" type="text" name="tag_id" value="<%=@transaction.tag_id%>" required="required" >
+
+  <label for="amount">Amount:</label>
+  <input id="amount" type="text" name="amount" value="<%=@transaction.amout%>" required="required" >
+
+  <br>
+  <input class="btn btn--submit" type="submit" value="Confirm">
+
+</form>
+</p>
+</section>

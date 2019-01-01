@@ -4,18 +4,43 @@ require_relative( '../models/transaction.rb' )
 also_reload( '../models/*' )
 
 
+#Show all Transactions
 get '/transactions' do
   @transactions = Transaction.all()
   erb ( :"transactions/index" )
 end
 
-get '/transactions/:id' do
-  @transaction = Transaction.find(params['id'].to_i)
-  erb(:"transactions/show")
+#Create new Transaction
+get '/transactions/new' do
+  erb ( :"transactions/new" )
 end
 
-#Show all Transactions
-#Create new Transaction
+post '/transactions' do
+  new_transaction = Transaction.new(params)
+  new_transaction.save()
+  redirect to("/transactions")
+end
+
 #Show Transaction details
+get '/transactions/:id' do
+  @transaction = Transaction.find(params['id'].to_i)
+  erb( :"transactions/show" )
+end
+
 #Edit Transaction details
+get '/transactions/:id/edit' do
+  @transaction = Transaction.find(params['id'].to_i)
+  erb(:'transactions/edit')
+end
+
+post '/transactions/:id' do
+  @transaction = Transaction.new(params)
+  @transaction.update()
+  erb(:'transactions/show')
+end
+
 #Delete Transaction route
+get '/transactions/:id/delete' do
+  Transaction.delete_by_id(params['id'].to_i)
+  redirect to("/transactions")
+end
