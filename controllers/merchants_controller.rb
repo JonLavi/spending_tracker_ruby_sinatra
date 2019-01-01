@@ -27,4 +27,20 @@ get '/merchants/:id' do
 end
 
 #Edit Merchant details
-#Delete Merchant
+get '/merchants/:id/edit' do
+  @merchant = Merchant.find(params['id'].to_i)
+  erb(:'merchants/edit')
+end
+
+post '/merchants/:id' do
+  @merchant = Merchant.new(params)
+  @merchant.update()
+  erb(:'merchants/show')
+end
+
+#Delete Merchant route
+
+get '/merchants/:id/delete' do
+  Merchant.delete_by_id(params['id'].to_i)
+  redirect to("/merchants")
+end
