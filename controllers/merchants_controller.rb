@@ -39,7 +39,6 @@ post '/merchants/:id' do
 end
 
 #Delete Merchant route
-
 get '/merchants/:id/delete' do
   Merchant.delete_by_id(params['id'].to_i)
   redirect to("/merchants")

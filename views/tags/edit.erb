@@ -1,0 +1,14 @@
+<h1>Edit Tag Details: <%= @tag.name %></h1>
+
+<section class="details-box">
+<p>
+<form class="" action="/tags/<%= @tag.id %>" method="post">
+
+  <label for="name"> Name: </label>
+  <input id="name" type="text" name="name" value="<%=@tag.name%>">
+  <br>
+  <input class="btn btn--submit" type="submit" value="Confirm">
+
+</form>
+</p>
+</section>
