@@ -1,11 +1,13 @@
 require_relative('../models/tag')
 require_relative('../models/merchant')
 require_relative('../models/transaction')
+require_relative('../models/budget')
 require('pry')
 
 Transaction.delete_all
 Tag.delete_all
 Merchant.delete_all
+Budget.delete_all
 
 tag1 = Tag.new({'name' => 'groceries'})
 tag1.save()
@@ -21,6 +23,9 @@ transaction1 = Transaction.new({'merchant_id' => merchant1.id, 'tag_id' => tag1.
 transaction1.save()
 transaction2 = Transaction.new({'merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => '25', 'trans_date' => '2019-01-01'})
 transaction2.save()
+
+budget1 = Budget.new({'name'=>'Food', 'amount'=>'200'})
+budget2 = Budget.new({'name'=>'Fun', 'amount'=>'300'})
 
 #TESTED METHODS
 #  .save()
