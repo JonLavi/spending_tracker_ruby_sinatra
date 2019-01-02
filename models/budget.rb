@@ -11,6 +11,10 @@ class Budget
     @amount = options['amount'].to_i
   end
 
+  #def transactions
+
+  #def remaining_funds
+
   #### SQL CRUD Actions ####
 
     def save()

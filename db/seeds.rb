@@ -19,13 +19,17 @@ merchant1.save()
 merchant2 = Merchant.new({'name' => 'Amazon'})
 merchant2.save()
 
-transaction1 = Transaction.new({'merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => '50', 'trans_date' => '2006-12-12'})
+budget1 = Budget.new({'name'=>'Food', 'amount'=>'200'})
+budget1.save()
+budget2 = Budget.new({'name'=>'Fun', 'amount'=>'300'})
+budget2.save()
+
+transaction1 = Transaction.new({'merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => '50', 'trans_date' => '2006-12-12', 'budget_id' => budget1.id})
 transaction1.save()
-transaction2 = Transaction.new({'merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => '25', 'trans_date' => '2019-01-01'})
+transaction2 = Transaction.new({'merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => '25', 'trans_date' => '2019-01-01', 'budget_id' => budget2.id})
 transaction2.save()
 
-budget1 = Budget.new({'name'=>'Food', 'amount'=>'200'})
-budget2 = Budget.new({'name'=>'Fun', 'amount'=>'300'})
+
 
 #TESTED METHODS
 #  .save()
