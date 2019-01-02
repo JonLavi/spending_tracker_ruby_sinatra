@@ -17,13 +17,16 @@ class Budget
 
   #def remaining_funds
 
-  def low?
+  def status?
     sum = Transaction.sum_by_budget(@id)
-    sum > (@amount*0.8) ? "Alert!" : "Still good"
-    #check whether the sum is bigger than 80% of the budget amount (run remaining_funds())
-    #alert
+    if sum > @amount
+      return "you are over balance!"
+    elsif sum > (@amount*0.8)
+      return "you are close to your limit"
+    else
+      return "you still have money left"
+    end
   end
-
 
   #### SQL CRUD Actions ####
 
