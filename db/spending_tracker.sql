@@ -20,5 +20,6 @@ CREATE TABLE transactions
   id SERIAL8 PRIMARY KEY,
   amount INT8,
   merchant_id INT8 REFERENCES merchants(id) ON DELETE SET NULL,
-  tag_id INT8 REFERENCES tags(id) ON DELETE SET NULL
+  tag_id INT8 REFERENCES tags(id) ON DELETE SET NULL,
+  trans_date DATE NOT NULL DEFAULT CURRENT_DATE
 );

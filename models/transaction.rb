@@ -8,6 +8,7 @@ class Transaction
     @merchant_id = options['merchant_id'].to_i
     @tag_id = options['tag_id'].to_i
     @amount = options['amount'].to_i
+    @trans_date = options['trans_date']
   end
 
   def merchant()
@@ -67,15 +68,15 @@ class Transaction
 #### SQL CRUD Actions ####
 
   def save()
-    sql = "INSERT INTO transactions (merchant_id, tag_id, amount) VALUES ($1, $2, $3) RETURNING id"
-    values = [@merchant_id, @tag_id, @amount]
+    sql = "INSERT INTO transactions (merchant_id, tag_id, amount, trans_date) VALUES ($1, $2, $3, $4) RETURNING id"
+    values = [@merchant_id, @tag_id, @amount, @trans_date]
     results = SqlRunner.run(sql, values)
     @id = results[0]['id'].to_i
   end
 
   def update()
-    sql = "UPDATE transactions SET (merchant_id, tag_id, amount) = ($1, $2, $3) WHERE id = $4"
-    values = [@merchant_id, @tag_id, @amount, @id]
+    sql = "UPDATE transactions SET (merchant_id, tag_id, amount, trans_date) = ($1, $2, $3, $4) WHERE id = $5"
+    values = [@merchant_id, @tag_id, @amount, @trans_date, @id]
     results = SqlRunner.run(sql, values)
   end
 
