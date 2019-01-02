@@ -15,7 +15,10 @@ class Budget
     Transaction.all_by_budget(@id)
   end
 
-  #def remaining_funds
+  def remaining_funds
+    sum = Transaction.sum_by_budget(@id)
+    remaining_funds = @amount - sum
+  end
 
   def status?
     sum = Transaction.sum_by_budget(@id)
