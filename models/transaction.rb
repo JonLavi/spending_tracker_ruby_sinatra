@@ -26,6 +26,13 @@ class Transaction
     return results
   end
 
+  def budget()
+    sql = 'SELECT name FROM budgets where id = $1'
+    values = [@budget_id]
+    results = SqlRunner.run(sql, values)[0]['name']
+    return results
+  end
+
   def self.all_by_merchant(merchant_name)
     sql = 'SELECT transactions.* FROM transactions
           INNER JOIN merchants ON transactions.merchant_id = merchants.id

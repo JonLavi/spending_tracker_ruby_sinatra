@@ -11,7 +11,13 @@
   <input id="tag_id" type="text" name="tag_id" value="<%=@transaction.tag_id%>" required="required" >
 
   <label for="amount">Amount:</label>
-  <input id="amount" type="text" name="amount" value="<%=@transaction.amout%>" required="required" >
+  <input id="amount" type="text" name="amount" value="<%=@transaction.amount%>" required="required" >
+
+  <label for="budget_id">Budget_id:</label>
+  <input id="amount" type="text" name="amount" value="<%=@transaction.budget_id%>" required="required" >
+
+  <label for="trans_date">Date:</label>
+  <input id="trans_date" type="date" name="trans_date" value="<%=@transaction.trans_date%>" required="required" >
 
   <br>
   <input class="btn btn--submit" type="submit" value="Confirm">
