@@ -11,9 +11,19 @@ class Budget
     @amount = options['amount'].to_i
   end
 
-  #def transactions
+  def transactions()
+    Transaction.all_by_budget(@id)
+  end
 
   #def remaining_funds
+
+  def low?
+    sum = Transaction.sum_by_budget(@id)
+    sum > (@amount*0.8) ? "Alert!" : "Still good"
+    #check whether the sum is bigger than 80% of the budget amount (run remaining_funds())
+    #alert
+  end
+
 
   #### SQL CRUD Actions ####
 

@@ -44,21 +44,37 @@ class Transaction
     results.map{|transaction| Transaction.new(transaction)}
   end
 
-  # def self.sum_by_tag(tag_name)
-  #   Transaction.sum(Transaction.all_by_tag(tag_name))
-  # end
-  #
-  # def self.sum_by_merchant(merchant_name)
-  #   Transaction.sum(Transaction.all_by_merchant(merchant_name))
-  # end
-  #
-  # def self.sum(transactions)
-  #   sum = 0
-  #   for transaction in transactions
-  #     sum += transaction['amount'].to_i
-  #   end
-  #   return sum
-  # end
+  def self.all_by_budget(budget_id)
+    sql = 'SELECT transactions.* FROM transactions
+          INNER JOIN budgets ON transactions.budget_id = budgets.id
+          WHERE budgets.id = $1'
+    values = [budget_id]
+    results = SqlRunner.run(sql, values)
+    results.map{|transaction| Transaction.new(transaction)}
+  end
+
+  def self.sum(transactions)
+    sum = 0
+    for transaction in transactions
+      sum += transaction.amount.to_i
+    end
+    return sum
+  end
+
+  def self.sum_by_tag(tag_name)
+    transactions = Transaction.all_by_tag(tag_name)
+    Transaction.sum(transactions)
+  end
+
+  def self.sum_by_merchant(merchant_name)
+    transaction = Transaction.all_by_merchant(merchant_name)
+    Transaction.sum(transaction)
+  end
+
+  def self.sum_by_budget(budget_id)
+    transactions = Transaction.all_by_budget(budget_id)
+    Transaction.sum(transactions)
+  end
 
   def self.total
     sql = 'SELECT SUM(amount) from transactions'
