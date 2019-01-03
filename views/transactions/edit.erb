@@ -4,9 +4,12 @@
 <p>
 <form class="" action="/transactions/<%= @transaction.id %>" method="post">
 
+
+#make dropdown
   <label for="merchant_id">Merchant ID:</label>
   <input id="merchant_id" type="text" name="merchant_id" value="<%=@transaction.merchant_id%>" required="required" >
 
+#make dropdown
   <label for="tag_id">Tag ID:</label>
   <input id="tag_id" type="text" name="tag_id" value="<%=@transaction.tag_id%>" required="required" >
 

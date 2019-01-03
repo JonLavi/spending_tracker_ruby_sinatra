@@ -11,6 +11,8 @@
     <th>Tag</th>
     <th>Date</th>
     <th>Amount</th>
+    <th></th>
+    <th></th>
   </tr>
 
   <% for transaction in @transactions do %>
@@ -20,6 +22,8 @@
       <td><%= transaction.tag %></td>
       <td><%= transaction.trans_date %></td>
       <td><%= transaction.amount %></td>
+      <td> <a href="/transactions/<%=transaction.id%>"> Details </a> </td>
+      <td> <a href="/transactions/<%=transaction.id%>/edit"> Edit </a> </td>
     </tr>
   <% end %>
 
