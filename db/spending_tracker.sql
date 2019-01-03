@@ -17,7 +17,7 @@ CREATE TABLE tags
 
 CREATE TABLE budgets
 (
-  id SERIAL8 PRIMARY KEY,
+  id IN8 PRIMARY KEY,
   name VARCHAR(255),
   amount INT8
 );

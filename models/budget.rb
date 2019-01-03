@@ -3,25 +3,19 @@ require_relative('../db/sql_runner')
 class Budget
 
   attr_reader :id
-  attr_accessor :amount, :name
+  attr_accessor :amount
 
   def initialize(options)
-    @id = options['id'].to_i if options['id']
-    @name = options['name']
+    @id = 1
     @amount = options['amount'].to_i
   end
 
-  def transactions()
-    Transaction.all_by_budget(@id)
-  end
-
   def remaining_funds
-    sum = Transaction.sum_by_budget(@id)
-    remaining_funds = @amount - sum
+    remaining_funds = @amount - Transaction.total
   end
 
   def status?
-    sum = Transaction.sum_by_budget(@id)
+    sum = Transaction.total
     if sum > @amount
       return "you are over balance!"
     elsif sum > (@amount*0.8)
@@ -34,15 +28,15 @@ class Budget
   #### SQL CRUD Actions ####
 
     def save()
-      sql = "INSERT INTO budgets (name, amount) VALUES ($1, $2) RETURNING id"
-      values = [@name, @amount]
+      sql = "INSERT INTO budgets (amount, id) VALUES ($1, $2)"
+      values = [@amount, @id]
       results = SqlRunner.run(sql, values)
       @id = results[0]['id'].to_i
     end
 
     def update()
-      sql = "UPDATE budgets SET (name, amount) = ($1, $2) WHERE id = $3"
-      values = [@name, @amount, @id]
+      sql = "UPDATE budgets SET amount = $1 WHERE id = $2"
+      values = [@amount, @id]
       results = SqlRunner.run(sql, values)
     end
 

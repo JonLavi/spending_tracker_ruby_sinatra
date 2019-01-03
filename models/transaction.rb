@@ -9,7 +9,7 @@ class Transaction
     @tag_id = options['tag_id'].to_i
     @amount = options['amount'].to_i
     @trans_date = options['trans_date']
-    @budget_id = options['budget_id']
+    @budget_id = 1
   end
 
   def merchant()
@@ -22,13 +22,6 @@ class Transaction
   def tag()
     sql = 'SELECT name FROM tags where id = $1'
     values = [@tag_id]
-    results = SqlRunner.run(sql, values)[0]['name']
-    return results
-  end
-
-  def budget()
-    sql = 'SELECT name FROM budgets where id = $1'
-    values = [@budget_id]
     results = SqlRunner.run(sql, values)[0]['name']
     return results
   end
@@ -51,15 +44,6 @@ class Transaction
     results.map{|transaction| Transaction.new(transaction)}
   end
 
-  def self.all_by_budget(budget_id)
-    sql = 'SELECT transactions.* FROM transactions
-          INNER JOIN budgets ON transactions.budget_id = budgets.id
-          WHERE budgets.id = $1'
-    values = [budget_id]
-    results = SqlRunner.run(sql, values)
-    results.map{|transaction| Transaction.new(transaction)}
-  end
-
   def self.sum(transactions)
     sum = 0
     for transaction in transactions
@@ -76,11 +60,6 @@ class Transaction
   def self.sum_by_merchant(merchant_name)
     transaction = Transaction.all_by_merchant(merchant_name)
     Transaction.sum(transaction)
-  end
-
-  def self.sum_by_budget(budget_id)
-    transactions = Transaction.all_by_budget(budget_id)
-    Transaction.sum(transactions)
   end
 
   def self.total

@@ -1,1 +1,14 @@
 <h2>Spending Tracker!!</h2>
+
+<p>Please specify your budget:</p>
+<form class="" action="/" method="post">
+
+  <label for="amount">Budget:</label>
+  <input id="amount" type="number" name="amount" value="<%=@budget.amount%>" required="required" >
+
+  <input id="id" type="hidden" name="id" value="1" required="required"  >
+
+  <br>
+  <input class="btn btn--submit" type="submit" value="Confirm">
+
+</form>
