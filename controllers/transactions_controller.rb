@@ -6,12 +6,15 @@ also_reload( '../models/*' )
 
 #Show all Transactions
 get '/transactions' do
+  @budget = Budget.find(1)
   @transactions = Transaction.all()
   erb ( :"transactions/index" )
 end
 
 #Create new Transaction
 get '/transactions/new' do
+  @merchants = Merchant.all()
+  @tags = Tag.all()
   erb ( :"transactions/new" )
 end
 

@@ -22,11 +22,11 @@ merchant2.save()
 budget1 = Budget.new({'amount'=>'0'})
 budget1.save()
 
-transaction1 = Transaction.new({'merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => '50', 'trans_date' => '2006-12-12', 'budget_id' => budget1.id})
+transaction1 = Transaction.new({'merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => '50', 'trans_date' => '2006-12-12'})
 transaction1.save()
-transaction2 = Transaction.new({'merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => '25', 'trans_date' => '2019-01-01', 'budget_id' => budget2.id})
+transaction2 = Transaction.new({'merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => '25', 'trans_date' => '2019-01-01'})
 transaction2.save()
-transaction3 = Transaction.new({'merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => '34', 'trans_date' => '2018-02-01', 'budget_id' => budget2.id})
+transaction3 = Transaction.new({'merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => '34', 'trans_date' => '2018-02-01'})
 transaction3.save()
 
 

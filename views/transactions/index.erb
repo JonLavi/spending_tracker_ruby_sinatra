@@ -1,5 +1,7 @@
 <h2>Transactions</h2>
-<h2>Total: £<%=Transaction.total()%></h2>
+<h2>Total: £<%= Transaction.total() %>, remaining budget: £<%= @budget.remaining_funds %></h2>
+
+<p><a href="transactions/new">New Transaction!</a> </p>
 
 <table>
 
