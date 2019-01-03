@@ -1,8 +1,11 @@
 <h2>Tags</h2>
 
+<a href="tags/new">New Tag!</a>
+
 <% for tag in @tags do %>
   <p>
-  ID: <%= tag.id %>
-  Name: <%= tag.name %>
+  ID: <%= tag.id %>,
+  Name: <%= tag.name %>,
+  <a href="tags/<%=tag.id%>/edit">Edit</a>
   </p>
 <% end %>

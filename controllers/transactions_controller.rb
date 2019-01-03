@@ -32,6 +32,8 @@ end
 
 #Edit Transaction details
 get '/transactions/:id/edit' do
+  @merchants = Merchant.all()
+  @tags = Tag.all()
   @transaction = Transaction.find(params['id'].to_i)
   erb(:'transactions/edit')
 end

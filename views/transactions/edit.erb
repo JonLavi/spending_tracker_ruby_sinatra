@@ -4,26 +4,40 @@
 <p>
 <form class="" action="/transactions/<%= @transaction.id %>" method="post">
 
+  <!-- Make the correct merchant/tag be pre-selected -->
 
-#make dropdown
-  <label for="merchant_id">Merchant ID:</label>
-  <input id="merchant_id" type="text" name="merchant_id" value="<%=@transaction.merchant_id%>" required="required" >
+  <p>
+    <label for="merchant_id"> Merchant: </label>
+    <select name="merchant_id" id="merchant_select" selected="<%= @transaction.merchant_id  %>">
+      <% @merchants.each do |merchant| %>
+      <option <%="selected" if @transaction.merchant_id == merchant.id%> value = '<%=merchant.id%>'><%=merchant.name%></option>
+      <% end %>
+    </select>
+  </p>
 
-#make dropdown
-  <label for="tag_id">Tag ID:</label>
-  <input id="tag_id" type="text" name="tag_id" value="<%=@transaction.tag_id%>" required="required" >
+  <p>
+    <label for="tag_id"> tag: </label>
+    <select name="tag_id" id="tag_select" selected="<%= @transaction.tag_id  %>">
+      <% @tags.each do |tag| %>
+      <option <%="selected" if @transaction.tag_id == tag.id%> value = '<%=tag.id%>'><%=tag.name%></option>
+      <% end %>
+    </select>
+  </p>
 
-  <label for="amount">Amount:</label>
-  <input id="amount" type="text" name="amount" value="<%=@transaction.amount%>" required="required" >
+  <p>
+    <label for="amount">Amount:</label>
+    <input id="amount" type="text" name="amount" value="<%=@transaction.amount%>" required="required" >
+  </p>
 
-  <label for="budget_id">Budget_id:</label>
-  <input id="amount" type="text" name="amount" value="<%=@transaction.budget_id%>" required="required" >
+  <p>
+    <label for="trans_date">Date:</label>
+    <input id="trans_date" type="date" name="trans_date" value="<%=@transaction.trans_date%>" required="required" >
+  </p>
 
-  <label for="trans_date">Date:</label>
-  <input id="trans_date" type="date" name="trans_date" value="<%=@transaction.trans_date%>" required="required" >
-
-  <br>
-  <input class="btn btn--submit" type="submit" value="Confirm">
+  <p>
+    <input id="amount" type="hidden" name="amount" value="<%=@transaction.budget_id%>" required="required" >
+    <input class="btn btn--submit" type="submit" value="Confirm">
+  </p>
 
 </form>
 </p>
