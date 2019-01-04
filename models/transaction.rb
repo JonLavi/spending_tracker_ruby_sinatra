@@ -26,20 +26,20 @@ class Transaction
     return results
   end
 
-  def self.all_by_merchant(merchant_name)
+  def self.all_by_merchant(merchant_id)
     sql = 'SELECT transactions.* FROM transactions
           INNER JOIN merchants ON transactions.merchant_id = merchants.id
-          WHERE merchants.name = $1'
-    values = [merchant_name]
+          WHERE merchants.id = $1'
+    values = [merchant_id]
     results = SqlRunner.run(sql, values)
     results.map{|transaction| Transaction.new(transaction)}
   end
 
-  def self.all_by_tag(tag_name)
+  def self.all_by_tag(tag_id)
     sql = 'SELECT transactions.* FROM transactions
           INNER JOIN tags ON transactions.tag_id = tags.id
-          WHERE tags.name = $1'
-    values = [tag_name]
+          WHERE tags.id = $1'
+    values = [tag_id]
     results = SqlRunner.run(sql, values)
     results.map{|transaction| Transaction.new(transaction)}
   end
@@ -52,13 +52,13 @@ class Transaction
     return sum
   end
 
-  def self.sum_by_tag(tag_name)
-    transactions = Transaction.all_by_tag(tag_name)
+  def self.sum_by_tag(tag_id)
+    transactions = Transaction.all_by_tag(tag_id)
     Transaction.sum(transactions)
   end
 
-  def self.sum_by_merchant(merchant_name)
-    transaction = Transaction.all_by_merchant(merchant_name)
+  def self.sum_by_merchant(merchant_id)
+    transactions = Transaction.all_by_merchant(merchant_id)
     Transaction.sum(transaction)
   end
 

@@ -9,7 +9,7 @@ class Tag
   end
 
   def transaction_count()
-    transactions = Transaction.all_by_tag(@name)
+    transactions = Transaction.all_by_tag(@id)
     transactions.count
   end
 

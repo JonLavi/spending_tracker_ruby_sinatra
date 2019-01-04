@@ -3,6 +3,37 @@
 
 <p><a href="transactions/new">New Transaction!</a> </p>
 
+<p>
+  <form class="" action="/transactions/merchant" method="post">
+
+    <label for="merchant_select">Filter by Merchant:</label>
+    <select name="merchant_id" id="merchant_select">
+      <% @merchants.each do |merchant| %>
+      <option value=<%= merchant.id %>><%= merchant.name %></option>
+      <% end %>
+    </select>
+    <input class="btn btn--submit" type="submit" value="Confirm">
+
+  </form>
+</p>
+
+<p>
+  <form class="" action="/transactions/tag" method="post">
+
+    <label for="tag_select">Filter by Tag:</label>
+    <select name="tag_id" id="tag_select">
+      <% @tags.each do |tag| %>
+      <option value=<%= tag.id %>><%= tag.name %></option>
+      <% end %>
+    </select>
+    <input class="btn btn--submit" type="submit" value="Confirm">
+
+  </form>
+</p>
+
+
+<!-- Make Table of Transactions -->
+
 <table>
 
   <tr>

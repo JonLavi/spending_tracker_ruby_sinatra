@@ -11,7 +11,7 @@ class Merchant
   end
 
   def transaction_count()
-    transactions = Transaction.all_by_merchant(@name)
+    transactions = Transaction.all_by_merchant(@id)
     transactions.count
   end
 

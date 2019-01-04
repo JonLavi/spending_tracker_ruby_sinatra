@@ -7,7 +7,27 @@ also_reload( '../models/*' )
 #Show all Transactions
 get '/transactions' do
   @budget = Budget.find(1)
+  @merchants = Merchant.all()
+  @tags = Tag.all()
   @transactions = Transaction.all()
+  erb ( :"transactions/index" )
+end
+
+#Filter by Merchant/Tag
+
+post '/transactions/merchant' do
+  @budget = Budget.find(1)
+  @merchants = Merchant.all()
+  @tags = Tag.all()
+  @transactions = Transaction.all_by_merchant(params)
+  erb ( :"transactions/index" )
+end
+
+post '/transactions/tag' do
+  @budget = Budget.find(1)
+  @merchants = Merchant.all()
+  @tags = Tag.all()
+  @transactions = Transaction.all_by_tag(params)
   erb ( :"transactions/index" )
 end
 
