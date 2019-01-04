@@ -8,6 +8,11 @@ class Tag
     @name = options['name']
   end
 
+  def transaction_count()
+    transactions = Transaction.all_by_tag(@name)
+    transactions.count
+  end
+
 #### SQL CRUD Actions ####
 
   def save()

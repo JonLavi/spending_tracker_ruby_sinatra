@@ -6,6 +6,7 @@ also_reload( '../models/*' )
 #Show all Merchants
 get '/merchants' do
   @merchants = Merchant.all()
+  @transactions = Transaction.all()
   erb ( :"merchants/index" )
 end
 
