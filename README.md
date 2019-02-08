@@ -3,6 +3,10 @@
 This is a basic spending tracker app. It is a web-app built with Ruby, Sinatra, and SQL, created to practice and consolidate web-programming skills learnt at CodeClan.
 It allows the user to set a budget, and log different expenses.
 
+### ToDo:
+* Finish the functionality to filter by merchant/tag
+* Add CSS styling
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
