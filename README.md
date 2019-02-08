@@ -51,7 +51,7 @@ You are now free to add/edit/remove entries to the database.
 
 From the root directory of the project, run the test files:
 ```
-rb models/specs/[test_file_name.rb
+rb models/specs/[test_file_name].rb
 ```
 
 ## Built With
