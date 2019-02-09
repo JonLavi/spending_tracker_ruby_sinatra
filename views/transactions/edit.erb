@@ -1,44 +1,44 @@
 <h1>Edit Transaction Details: <%= @transaction.id %></h1>
 
 <section class="details-box">
-<p>
-<form class="" action="/transactions/<%= @transaction.id %>" method="post">
-
-  <!-- Make the correct merchant/tag be pre-selected -->
-
   <p>
-    <label for="merchant_id"> Merchant: </label>
-    <select name="merchant_id" id="merchant_select" selected="<%= @transaction.merchant_id  %>">
-      <% @merchants.each do |merchant| %>
-      <option <%="selected" if @transaction.merchant_id == merchant.id%> value = '<%=merchant.id%>'><%=merchant.name%></option>
-      <% end %>
-    </select>
-  </p>
+    <form class="" action="/transactions/<%= @transaction.id %>" method="post">
 
-  <p>
-    <label for="tag_id"> tag: </label>
-    <select name="tag_id" id="tag_select" selected="<%= @transaction.tag_id  %>">
-      <% @tags.each do |tag| %>
-      <option <%="selected" if @transaction.tag_id == tag.id%> value = '<%=tag.id%>'><%=tag.name%></option>
-      <% end %>
-    </select>
-  </p>
+      <!-- Make the correct merchant/tag be pre-selected -->
 
-  <p>
-    <label for="amount">Amount:</label>
-    <input id="amount" type="text" name="amount" value="<%=@transaction.amount%>" required="required" >
-  </p>
+      <p>
+        <label for="merchant_id"> Merchant: </label>
+        <select name="merchant_id" id="merchant_select" selected="<%= @transaction.merchant_id  %>">
+          <% @merchants.each do |merchant| %>
+          <option <%="selected" if @transaction.merchant_id == merchant.id%> value = '<%=merchant.id%>'><%=merchant.name%></option>
+          <% end %>
+        </select>
+      </p>
 
-  <p>
-    <label for="trans_date">Date:</label>
-    <input id="trans_date" type="date" name="trans_date" value="<%=@transaction.trans_date%>" required="required" >
-  </p>
+      <p>
+        <label for="tag_id"> tag: </label>
+        <select name="tag_id" id="tag_select" selected="<%= @transaction.tag_id  %>">
+          <% @tags.each do |tag| %>
+          <option <%="selected" if @transaction.tag_id == tag.id%> value = '<%=tag.id%>'><%=tag.name%></option>
+          <% end %>
+        </select>
+      </p>
 
-  <p>
-    <input id="amount" type="hidden" name="amount" value="<%=@transaction.budget_id%>" required="required" >
-    <input class="btn btn--submit" type="submit" value="Confirm">
-  </p>
+      <p>
+        <label for="amount">Amount:</label>
+        <input id="amount" type="text" name="amount" value="<%=@transaction.amount%>" required="required" >
+      </p>
 
-</form>
-</p>
+      <p>
+        <label for="trans_date">Date:</label>
+        <input id="trans_date" type="date" name="trans_date" value="<%=@transaction.trans_date%>" required="required" >
+      </p>
+
+      <p>
+        <input id="amount" type="hidden" name="amount" value="<%=@transaction.budget_id%>" required="required" >
+        <input class="btn btn--submit" type="submit" value="Confirm">
+      </p>
+
+    </form>
+  </p>
 </section>

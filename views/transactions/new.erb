@@ -1,38 +1,38 @@
 <h1>New Transaction</h1>
 
 <section class="details-box">
-<form class="" action="/transactions" method="post">
+  <form class="" action="/transactions" method="post">
 
-  <p>
-    <label for="merchant_select">Select Merchant:</label>
-    <select name="merchant_id" id="merchant_select">
-      <% @merchants.each do |merchant| %>
-      <option value=<%= merchant.id %>><%= merchant.name %></option>
-      <% end %>
-    </select> <a href="merchants/new">Add New Merchant!</a>
-  </p>
+    <p>
+      <label for="merchant_select">Select Merchant:</label>
+      <select name="merchant_id" id="merchant_select">
+        <% @merchants.each do |merchant| %>
+        <option value=<%= merchant.id %>><%= merchant.name %></option>
+        <% end %>
+      </select> <a href="merchants/new">Add New Merchant!</a>
+    </p>
 
-  <p>
-    <label for="tag_select">Select Tag:</label>
-    <select name="tag_id" id="tag_select">
-      <% @tags.each do |tag| %>
-      <option value=<%= tag.id %>><%= tag.name %></option>
-      <% end %>
-    </select> <a href="tags/new">Add New Tag!</a>
-  </p>
+    <p>
+      <label for="tag_select">Select Tag:</label>
+      <select name="tag_id" id="tag_select">
+        <% @tags.each do |tag| %>
+        <option value=<%= tag.id %>><%= tag.name %></option>
+        <% end %>
+      </select> <a href="tags/new">Add New Tag!</a>
+    </p>
 
-  <p>
-    <label for="amount">Amount:</label>
-    <input id="amount" type="text" name="amount" required="required" >
-  </p>
+    <p>
+      <label for="amount">Amount:</label>
+      <input id="amount" type="text" name="amount" required="required" >
+    </p>
 
-  <p>
-    <label for="trans_date">Date:</label>
-    <input id="trans_date" type="date" name="trans_date" required="required" >
-  </p>
+    <p>
+      <label for="trans_date">Date:</label>
+      <input id="trans_date" type="date" name="trans_date" required="required" >
+    </p>
 
-  <p>
-    <input class="btn btn--submit" type="submit" value="Create Transaction">
-  </p>
-</form>
+    <p>
+      <input class="btn btn--submit" type="submit" value="Create Transaction">
+    </p>
+  </form>
 <section class="details-box">

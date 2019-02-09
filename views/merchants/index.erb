@@ -4,10 +4,10 @@
 
 <% for merchant in @merchants do %>
   <p>
-  ID: <%= merchant.id %>,
-  Name: <%= merchant.name %>,
-  Transactions: <%= merchant.transaction_count %>,
-  <a href="merchants/<%=merchant.id%>">Details</a>,
-  <a href="merchants/<%=merchant.id%>/edit">Edit</a>
+    ID: <%= merchant.id %>,
+    Name: <%= merchant.name %>,
+    Transactions: <%= merchant.transaction_count %>,
+    <a href="merchants/<%=merchant.id%>">Details</a>,
+    <a href="merchants/<%=merchant.id%>/edit">Edit</a>
   </p>
 <% end %>

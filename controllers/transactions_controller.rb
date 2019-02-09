@@ -3,7 +3,6 @@ require( 'sinatra/contrib/all' )
 require_relative( '../models/transaction.rb' )
 also_reload( '../models/*' )
 
-
 #Show all Transactions
 get '/transactions' do
   @budget = Budget.find(1)
@@ -14,7 +13,6 @@ get '/transactions' do
 end
 
 #Filter by Merchant/Tag
-
 post '/transactions/merchant' do
   @budget = Budget.find(1)
   @merchants = Merchant.all()

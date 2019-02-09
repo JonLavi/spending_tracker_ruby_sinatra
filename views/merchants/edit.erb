@@ -1,15 +1,15 @@
 <h1>Edit Merchant Details: <%= @merchant.name %></h1>
 
 <section class="details-box">
-<p>
-<form class="" action="/merchants/<%= @merchant.id %>" method="post">
+  <p>
+    <form class="" action="/merchants/<%= @merchant.id %>" method="post">
 
-  <label for="name"> Name: </label>
-  <input id="name" type="text" name="name" value="<%=@merchant.name%>">
+      <label for="name"> Name: </label>
+      <input id="name" type="text" name="name" value="<%=@merchant.name%>">
 
-  <br>
-  <input class="btn btn--submit" type="submit" value="Confirm">
+      <br>
+      <input class="btn btn--submit" type="submit" value="Confirm">
 
-</form>
-</p>
+    </form>
+  </p>
 </section>

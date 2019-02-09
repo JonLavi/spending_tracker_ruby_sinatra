@@ -2,7 +2,6 @@ require_relative('../models/tag')
 require_relative('../models/merchant')
 require_relative('../models/transaction')
 require_relative('../models/budget')
-require('pry')
 
 Transaction.delete_all
 Tag.delete_all
@@ -45,6 +44,3 @@ transaction3.save()
 
 
 #TODO : test crud for tags/transactions
-
-binding.pry
-nil

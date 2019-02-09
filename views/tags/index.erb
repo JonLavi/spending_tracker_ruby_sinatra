@@ -4,10 +4,10 @@
 
 <% for tag in @tags do %>
   <p>
-  ID: <%= tag.id %>,
-  Name: <%= tag.name %>,
-  Transactions: <%= tag.transaction_count %>,
-  <a href="tags/<%=tag.id%>">Details</a>
-  <a href="tags/<%=tag.id%>/edit">Edit</a>
+    ID: <%= tag.id %>,
+    Name: <%= tag.name %>,
+    Transactions: <%= tag.transaction_count %>,
+    <a href="tags/<%=tag.id%>">Details</a>
+    <a href="tags/<%=tag.id%>/edit">Edit</a>
   </p>
 <% end %>

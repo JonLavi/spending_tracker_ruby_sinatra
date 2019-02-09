@@ -27,44 +27,44 @@ class Budget
 
   #### SQL CRUD Actions ####
 
-    def save()
-      sql = "INSERT INTO budgets (amount, id) VALUES ($1, $2)"
-      values = [@amount, @id]
-      results = SqlRunner.run(sql, values)
-    end
+  def save()
+    sql = "INSERT INTO budgets (amount, id) VALUES ($1, $2)"
+    values = [@amount, @id]
+    results = SqlRunner.run(sql, values)
+  end
 
-    def update()
-      sql = "UPDATE budgets SET amount = $1 WHERE id = $2"
-      values = [@amount, @id]
-      results = SqlRunner.run(sql, values)
-    end
+  def update()
+    sql = "UPDATE budgets SET amount = $1 WHERE id = $2"
+    values = [@amount, @id]
+    results = SqlRunner.run(sql, values)
+  end
 
-    def delete()
-      Budget.delete_by_id(@id)
-    end
+  def delete()
+    Budget.delete_by_id(@id)
+  end
 
-    def self.find(id)
-      sql = "SELECT * FROM budgets WHERE id = $1"
-      values = [id]
-      result = SqlRunner.run(sql, values)
-      return Budget.new(result[0])
-    end
+  def self.find(id)
+    sql = "SELECT * FROM budgets WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return Budget.new(result[0])
+  end
 
-    def self.delete_by_id(id)
-      sql = "DELETE FROM budgets WHERE id = $1"
-      values = [id]
-      results = SqlRunner.run(sql, values)
-    end
+  def self.delete_by_id(id)
+    sql = "DELETE FROM budgets WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+  end
 
-    def self.all()
-      sql = "SELECT * FROM budgets"
-      results = SqlRunner.run(sql)
-      return results.map{|hash| Budget.new(hash)}
-    end
+  def self.all()
+    sql = "SELECT * FROM budgets"
+    results = SqlRunner.run(sql)
+    return results.map{|hash| Budget.new(hash)}
+  end
 
-    def self.delete_all()
-      sql = "DELETE FROM budgets"
-      SqlRunner.run(sql)
-    end
+  def self.delete_all()
+    sql = "DELETE FROM budgets"
+    SqlRunner.run(sql)
+  end
 
 end

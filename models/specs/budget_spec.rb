@@ -9,6 +9,4 @@ class BudgetTest < MiniTest::Test
     assert_equal(200, budget.amount)
   end
 
-
-
 end
